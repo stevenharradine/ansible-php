@@ -44,6 +44,7 @@ php_sodium_version: 0.1.1
 
 php_documentor_validate_certs: yes
 
+php_services_postfix: "{% if ansible_distribution_major_version|int <= 15 %}5{% else %}7.0{% endif %}"
 php_modules_postfix: "{% if ansible_distribution_major_version|int <= 15 %}5{% endif %}"
 php_modules:
   - "php{{ php_modules_postfix }}-json"
