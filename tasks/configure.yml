@@ -1,7 +1,7 @@
 ---
 - name: Configure | php5-fpm | php-fpm.conf
   ini_file:
-    dest: /etc/php5/fpm/php-fpm.conf
+    dest: "{{ php_configuration_root }}fpm/php-fpm.conf"
     section: global
     option: "{{ item.option }}"
     value: "{{ item.value }}"
@@ -18,7 +18,7 @@
 
 - name: Configure | php5-fpm | pool
   ini_file:
-    dest: /etc/php5/fpm/pool.d/www.conf
+    dest: "{{ php_configuration_root }}fpm/pool.d/www.conf"
     section: www
     option: "{{ item.option }}"
     value: "{{ item.value }}"
@@ -37,7 +37,7 @@
 
 - name: Configure | php5-fpm | php.ini
   ini_file:
-    dest: /etc/php5/fpm/php.ini
+    dest: "{{ php_configuration_root }}fpm/php.ini"
     section: PHP
     option: "{{ item.option }}"
     value: "{{ item.value }}"
